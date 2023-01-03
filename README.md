@@ -5,6 +5,4 @@ Welcome to the MATSim DRT scenario library! In this library, you will find multi
 In this repository, the run script and the config file is inclueded. The other files related to the scenarios (e.g., network, plans) is stored in the  conrresponding folders of VSP public-svn (https://svn.vsp.tu-berlin.de/repos/public-svn/matsim/scenarios/countries/world/drt-scenario-library/). The path to the files on svn are already speficied in the config file. 
 
 
-The library is now under construction. For more information, please contact me (lu@vsp.tu-berlin.de)
-
-
+The library is now under construction. For more information, please contact me (lu@vsp.tu-berlin.de). 
