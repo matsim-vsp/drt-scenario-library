@@ -5,7 +5,7 @@ library(tidytransit)
 library(tidyverse)
 library(lubridate)
 
-berlin_gtfs <- read_gtfs("../../../../../../../RStudio-workspace/Data-science-course/week-11/berlin_gtfs.zip") #TODO upload the data to SVN
+berlin_gtfs <- read_gtfs("https://svn.vsp.tu-berlin.de/repos/public-svn/matsim/scenarios/countries/world/drt-scenario-library/oranienburg/raw-data/berlin_gtfs.zip")
 
 gtfs_filtered <- berlin_gtfs %>%
   filter_feed_by_date("2023-01-11", "00:00:00","23:59:59")
