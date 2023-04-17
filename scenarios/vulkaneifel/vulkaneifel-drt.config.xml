@@ -72,7 +72,7 @@
 	</module>
 
 	<module name="plans">
-		<param name="inputPlansFile" value="https://svn.vsp.tu-berlin.de/repos/public-svn/matsim/scenarios/countries/world/drt-scenario-library/vulkaneifel/plans/vulkaneifel-1.0-25pct-drt-only-2.plans.xml.gz" />
+		<param name="inputPlansFile" value="https://svn.vsp.tu-berlin.de/repos/public-svn/matsim/scenarios/countries/world/drt-scenario-library/vulkaneifel/plans/vulkaneifel-1.0-25pct-drt-case-2.plans.xml.gz" />
 	</module>
 
 	<module name="qsim">
