@@ -3,10 +3,10 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.matsim</groupId>
-	<artifactId>project-space</artifactId>
+	<artifactId>drt-scenarios-library</artifactId>
 	<version>master-SNAPSHOT</version>
 
-	<name>My project space</name>
+	<name>DRT Scenarios Library</name>
 	<description>A repository for pre-booking study project</description>
 
 	<properties>
