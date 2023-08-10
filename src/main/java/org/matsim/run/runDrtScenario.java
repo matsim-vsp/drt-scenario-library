@@ -17,7 +17,7 @@ import org.matsim.contrib.dvrp.run.DvrpQSimComponents;
 import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.controler.Controler;
-import org.matsim.utils.LinearDrtStopDurationEstimator;
+import org.matsim.modules.LinearDrtStopDurationModule;
 import picocli.CommandLine;
 
 import javax.annotation.Nullable;
@@ -58,13 +58,7 @@ public class runDrtScenario extends MATSimApplication {
         MultiModeDrtConfigGroup multiModeDrtConfigGroup = MultiModeDrtConfigGroup.get(config);
         for (DrtConfigGroup drtCfg : multiModeDrtConfigGroup.getModalElements()) {
             // Add linear stop duration module
-            controler.addOverridingModule(new AbstractDvrpModeModule(drtCfg.getMode()) {
-                @Override
-                public void install() {
-                    bindModal(StopDurationEstimator.class).toInstance((vehicle, dropoffRequests, pickupRequests) -> drtCfg.stopDuration * (dropoffRequests.size() + pickupRequests.size()));
-                    bindModal(IncrementalStopDurationEstimator.class).toInstance(new LinearDrtStopDurationEstimator(drtCfg.stopDuration));
-                }
-            });
+            controler.addOverridingModule(new LinearDrtStopDurationModule(drtCfg));
         }
     }
 

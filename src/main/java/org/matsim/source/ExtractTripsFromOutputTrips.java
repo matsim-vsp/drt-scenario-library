@@ -1,4 +1,4 @@
-package org.matsim.prepare.oranienburg;
+package org.matsim.source;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -33,6 +33,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
+/**
+ * Preparation script for the Oranienburg scenario
+ * */
 public class ExtractTripsFromOutputTrips implements MATSimAppCommand {
     private static final Logger log = LogManager.getLogger(ExtractTripsFromOutputTrips.class);
 
