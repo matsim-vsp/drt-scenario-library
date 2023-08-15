@@ -17,7 +17,7 @@
  *                                                                         *
  * *********************************************************************** */
 
-package org.matsim.utils;
+package org.matsim.prepare.createCustomScenario;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -47,7 +47,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 /**
- * @author jbischoff, modified by luchengqi7
+ * @author jbischoff, luchengqi7
  * This is an example script to create a vehicle file for taxis, SAV or DRTs.
  * The vehicles are distributed randomly in the network.
  */
