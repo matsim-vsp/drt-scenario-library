@@ -23,7 +23,7 @@ public class RunUseCase {
                     + Arrays.toString(ScenariosTools.UseCases.values()));
         }
 
-        ScenariosTools.UseCases useCase = ScenariosTools.UseCases.valueOf(args[0]);
+        ScenariosTools.UseCases useCase = ScenariosTools.UseCases.valueOf(args[0].toUpperCase());
 
         String configPath;
         switch (useCase) {
