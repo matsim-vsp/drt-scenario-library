@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.matsim.api.core.v01.Coord;
 import org.matsim.api.core.v01.Id;
-import org.matsim.api.core.v01.TransportMode;
 import org.matsim.api.core.v01.network.Link;
 import org.matsim.api.core.v01.network.Network;
 import org.matsim.api.core.v01.population.*;
@@ -65,9 +64,9 @@ public class PreparePlansForManualSampling implements MATSimAppCommand {
         Network network = NetworkUtils.readNetwork(networkPath);
         MainModeIdentifier mainModeIdentifier = new DefaultAnalysisMainModeIdentifier();
 
-        List<TripStructureUtils.Trip> allRelevantTrips = PrepareDrtRequestsRandomSelection.collectAllRelevantTripsFromInputPlans
+        List<TripStructureUtils.Trip> allRelevantTrips = PrepareAllPossibleDrtTrips.collectAllRelevantTripsFromInputPlans
                 (inputPlans, network, serviceArea, startTime, endTime, minTripEuclideanDistance, log);
-        PrepareDrtRequestsRandomSelection.processNetwork(network);
+        PrepareAllPossibleDrtTrips.processNetwork(network);
 
         int counter = 0;
         for (TripStructureUtils.Trip trip : allRelevantTrips) {

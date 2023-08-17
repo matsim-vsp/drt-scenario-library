@@ -24,6 +24,7 @@ import static org.matsim.utils.Tools.downloadFile;
 /**
  * Download the read-to-use scenarios to a local folder. Then simulations can be run locally
  */
+@Deprecated
 public class DownloadUseCase implements MATSimAppCommand {
     private static final Logger log = LogManager.getLogger(DownloadUseCase.class);
 
@@ -42,27 +43,25 @@ public class DownloadUseCase implements MATSimAppCommand {
     public Integer call() throws Exception {
         log.info("Downloading " + useCase + " scenario to " + target.toString());
         if (!Files.exists(target)) {
-            // TODO it will still fail, if the parent directory does not exist. Maybe there is a better way?
             Files.createDirectories(target);
         }
 
-        String configUrl;
+        String configPath;
         switch (useCase) {
             case BERLIN_DRT ->
-                    configUrl = "https://svn.vsp.tu-berlin.de/repos/public-svn/matsim/scenarios/countries/world/drt-scenario-library/use-cases/berlin-drt/berlin-drt.config.xml";
-            //TODO
-            case LEIPZIG_DRT -> configUrl = "abc";
-            case VULKANEIFEL_SCHOOL_TRANSPORT -> configUrl = "";
-            case KELHEIM_KEXI -> configUrl = "123";
-            case ORANIENBURG -> configUrl = "456";
+                    configPath = "scenarios/berlin-drt/berlin-drt.config.xml";
+            case LEIPZIG_DRT -> configPath = "abc";
+            case VULKANEIFEL_SCHOOL_TRANSPORT -> configPath = "";
+            case KELHEIM_KEXI -> configPath = "123";
+            case ORANIENBURG -> configPath = "456";
             default -> throw new RuntimeException("Not implemented. Please choose from " +
                     "[BERLIN_DRT, LEIPZIG_DRT, VULKANEIFEL_SCHOOL_TRANSPORT, KELHEIM_KEXI, ORANIENBURG]");
         }
 
         // Download config file
         log.info("Downloading config file");
-        downloadFile(configUrl, target.toString() + "/" + useCase.toString().toLowerCase() + ".config.xml");
-        Config config = ConfigUtils.loadConfig(configUrl);
+        downloadFile(configPath, target.toString() + "/" + useCase.toString().toLowerCase() + ".config.xml");
+        Config config = ConfigUtils.loadConfig(configPath);
         Scenario scenario = ScenarioUtils.loadScenario(config);
 
         // Download network
@@ -78,7 +77,7 @@ public class DownloadUseCase implements MATSimAppCommand {
         // Get drt vehicles
         log.info("Downloading vehicles file");
         String targetVehiclesZipFile = target + "/drt-vehicles.zip";
-        String drtVehiclesZip = getParentUrl(new URL(configUrl)) + "/drt-vehicles.zip";
+        String drtVehiclesZip = getParentUrl(new URL(configPath)) + "/drt-vehicles.zip";
         downloadFile(drtVehiclesZip, targetVehiclesZipFile);
         unzip(targetVehiclesZipFile, String.valueOf(target));
         Files.delete(Path.of(targetVehiclesZipFile));

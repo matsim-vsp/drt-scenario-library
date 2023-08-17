@@ -33,8 +33,6 @@ hs_err_pid*
 
 # default matsim output folders
 /output
-/scenarios/cottbus/output
-/scenarios/vulkaneifel/output
 /.ideas
 /ideas
 .idea/

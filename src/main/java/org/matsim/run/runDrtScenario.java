@@ -18,6 +18,7 @@ import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.controler.Controler;
 import org.matsim.modules.LinearDrtStopDurationModule;
+import org.matsim.utils.ScenariosTools;
 import picocli.CommandLine;
 
 import javax.annotation.Nullable;
