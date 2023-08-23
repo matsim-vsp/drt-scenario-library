@@ -8,6 +8,7 @@ import org.matsim.api.core.v01.network.Network;
 import org.matsim.application.MATSimAppCommand;
 import org.matsim.application.options.ShpOptions;
 import org.matsim.core.network.NetworkUtils;
+import org.matsim.core.network.algorithms.NetworkCleaner;
 import org.matsim.core.utils.geometry.geotools.MGC;
 import picocli.CommandLine;
 
@@ -56,8 +57,9 @@ public class NetworkCutter implements MATSimAppCommand {
             }
         }
 
-        // Remove links outside the study area
+        // Remove links outside the study area and clean network
         removeLinksFromNetwork(network, linksToRemove);
+        new NetworkCleaner().run(network);
 
         // Write new network
         NetworkUtils.writeNetwork(network, outputNetwork);

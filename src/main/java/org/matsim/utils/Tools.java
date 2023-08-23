@@ -39,9 +39,6 @@ public class Tools {
             network.removeNode(node.getId());
         }
 
-        // Clean the network
-        NetworkCleaner networkCleaner = new NetworkCleaner();
-        networkCleaner.run(network);
     }
 
 }
