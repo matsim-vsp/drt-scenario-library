@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<!DOCTYPE config SYSTEM "http://www.matsim.org/files/dtd/config_v2.dtd">
+<config>
+	<module name="dvrp">
+		<parameterset type="travelTimeMatrix">
+			<param name="cellSize" value="200"/>
+			<param name="maxNeighborDistance" value="10000"/>
+		</parameterset>
+	</module>
+
+	<module name="multiModeDrt">
+		<parameterset type="drt">
+			<parameterset type="ExtensiveInsertionSearch"/>
+			<param name="maxTravelTimeAlpha" value="1.5"/>
+            <param name="maxTravelTimeBeta" value="1200.0"/>
+            <param name="maxWaitTime" value="1200.0"/>
+            <param name="maxWalkDistance" value="1500.0"/>
+            <param name="rejectRequestIfMaxWaitOrTravelTimeViolated" value="false" />
+            <!-- Operational Scheme, either door2door or stopbased. door2door by default -->
+            <param name="operationalScheme" value="stopbased"/>
+            <!-- Bus stop duration. -->
+            <param name="stopDuration" value="60.0"/>
+            <!-- Stop locations file (transit schedule format, but without lines) for DRT stops. Used only for the stopbased mode -->
+            <param name="transitStopFile" value="drt-stops/drt-stops.xml"/>
+			<param name="vehiclesFile" value="drt-vehicles/3-8_seater-drt-vehicles.xml"/>
+			<parameterset type="zonalSystem">
+				<param name="zonesGeneration" value="GridFromNetwork"/>
+				<param name="cellSize" value="500"/>
+			</parameterset>
+
+			<parameterset type="rebalancing">
+				<param name="interval" value="900" />
+				<param name="maxTimeBeforeIdle" value="600" />
+				<parameterset type="minCostFlowRebalancingStrategy">
+					<param name="targetAlpha" value="0.25"/>
+					<param name="targetBeta" value="0.75"/>
+				</parameterset>
+			</parameterset>
+
+			<parameterset type="drtfare">
+				<param name="basefare" value="1.0"/>
+				<!-- Daily subscription fee (fee = positive value) -->
+				<param name="dailySubscriptionFee" value="0.0"/>
+				<!-- taxi fare per meter (fee = positive value) -->
+				<param name="distanceFare_m" value="0.0002"/>
+				<!-- taxi fare per hour (fee = positive value) -->
+				<param name="timeFare_h" value="3.6"/>
+			</parameterset>
+		</parameterset>
+	</module>
+
+	<module name="network">
+		<param name="inputNetworkFile" value="kelheim-drt.network.xml.gz"/>
+	</module>
+
+	<module name="plans">
+		<param name="inputPlansFile" value="kelheim-kexi.plans.xml.gz"/>
+	</module>
+
+	<module name="qsim">
+		<param name="simStarttimeInterpretation" value="onlyUseStarttime"/>
+		<param name="endTime" value="30:00:00"/>
+		<param name="flowCapacityFactor" value="100000.0" />
+		<param name="storageCapacityFactor" value="100000.0" />
+		<param name="insertingWaitingVehiclesBeforeDrivingVehicles" value="true"/>
+		<param name="snapshotStyle" value="queue"/>
+	</module>
+
+	<module name="controler">
+		<param name="outputDirectory" value="scenarios/output/kelheim-kexi/latest-run"/>
+		<param name="overwriteFiles" value="deleteDirectoryIfExists"/>
+		<param name="firstIteration" value="0"/>
+		<param name="lastIteration" value="1"/>
+	</module>
+
+	<module name="planCalcScore">
+		<param name="activityType_0" value="dummy"/>
+		<param name="activityTypicalDuration_0" value="24:00:00"/>
+		<param name="traveling_drt" value="-6"/>
+	</module>
+
+	<module name="strategy">
+		<!-- We focus only on DynAgents. "Standard" agents do not change their behaviour -->
+		<param name="maxAgentPlanMemorySize" value="1"/>
+		<param name="ModuleProbability_1" value="1.0"/>
+		<param name="Module_1" value="KeepLastSelected"/>
+	</module>
+</config>

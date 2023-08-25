@@ -30,7 +30,7 @@ public class RunUseCase {
             case BERLIN_DRT -> configPath = "scenarios/berlin-drt/berlin-drt.config.xml";
             case LEIPZIG_DRT -> configPath = "scenarios/leipzig-drt/leipzig-drt.config.xml";
             case VULKANEIFEL_SCHOOL_TRANSPORT -> configPath = "scenarios/vulkaneifel-school-transport/vulkaneifel-school-transport.config.xml";
-            case KELHEIM_KEXI -> configPath = "scenarios/kelheim-kexi/kelheim-drt.config.xml";
+            case KELHEIM_KEXI -> configPath = "scenarios/kelheim-kexi/kelheim-kexi.config.xml";
             case ORANIENBURG -> configPath = "scenarios/oranienburg/oranienburg-drt.config.xml";
             default -> throw new RuntimeException("Not implemented. Please choose from " +
                     "[BERLIN_DRT, LEIPZIG_DRT, VULKANEIFEL_SCHOOL_TRANSPORT, KELHEIM_KEXI, ORANIENBURG]");
