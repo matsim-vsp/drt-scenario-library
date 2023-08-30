@@ -26,7 +26,7 @@
 			<param name="drtServiceAreaShapeFile" value="https://svn.vsp.tu-berlin.de/repos/public-svn/matsim/scenarios/countries/de/berlin/berlin-v5.5-10pct/input/berlin-shp/berlin.shp" />
 			<parameterset type="zonalSystem">
 				<param name="zonesGeneration" value="GridFromNetwork"/>
-				<param name="cellSize" value="1000"/>
+				<param name="cellSize" value="500"/>
 			</parameterset>
 
 			<parameterset type="rebalancing">

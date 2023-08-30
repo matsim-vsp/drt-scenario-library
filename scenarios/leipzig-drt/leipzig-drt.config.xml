@@ -26,7 +26,7 @@
 			<param name="drtServiceAreaShapeFile" value="additional-data/shp/serviceArea-namav-leipzig-utm32n.shp" />
 			<parameterset type="zonalSystem">
 				<param name="zonesGeneration" value="GridFromNetwork"/>
-				<param name="cellSize" value="1000"/>
+				<param name="cellSize" value="500"/>
 			</parameterset>
 
 			<parameterset type="rebalancing">
