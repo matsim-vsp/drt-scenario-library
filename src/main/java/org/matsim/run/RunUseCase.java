@@ -9,6 +9,8 @@ import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.controler.Controler;
 import org.matsim.modules.LinearDrtStopDurationModule;
+import org.matsim.simwrapper.SimWrapperConfigGroup;
+import org.matsim.simwrapper.SimWrapperModule;
 import org.matsim.utils.ScenariosTools;
 
 import java.io.IOException;
@@ -29,7 +31,8 @@ public class RunUseCase {
         switch (useCase) {
             case BERLIN_DRT -> configPath = "scenarios/berlin-drt/berlin-drt.config.xml";
             case LEIPZIG_DRT -> configPath = "scenarios/leipzig-drt/leipzig-drt.config.xml";
-            case VULKANEIFEL_SCHOOL_TRANSPORT -> configPath = "scenarios/vulkaneifel-school-transport/vulkaneifel-school-transport.config.xml";
+            case VULKANEIFEL_SCHOOL_TRANSPORT ->
+                    configPath = "scenarios/vulkaneifel-school-transport/vulkaneifel-school-transport.config.xml";
             case KELHEIM_KEXI -> configPath = "scenarios/kelheim-kexi/kelheim-kexi.config.xml";
             case ORANIENBURG -> configPath = "scenarios/oranienburg/oranienburg-drt.config.xml";
             default -> throw new RuntimeException("Not implemented. Please choose from " +
@@ -37,7 +40,11 @@ public class RunUseCase {
         }
 
         Config config = ConfigUtils.loadConfig(configPath, new MultiModeDrtConfigGroup(), new DvrpConfigGroup());
+        SimWrapperConfigGroup sw = ConfigUtils.addOrGetModule(config, SimWrapperConfigGroup.class);
+
         Controler controler = DrtControlerCreator.createControler(config, false);
+
+        controler.addOverridingModule(new SimWrapperModule());
 
         MultiModeDrtConfigGroup multiModeDrtConfigGroup = MultiModeDrtConfigGroup.get(config);
         for (DrtConfigGroup drtCfg : multiModeDrtConfigGroup.getModalElements()) {

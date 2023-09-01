@@ -1,6 +1,12 @@
 <?xml version="1.0" ?>
 <!DOCTYPE config SYSTEM "http://www.matsim.org/files/dtd/config_v2.dtd">
 <config>
+	<module name="global" >
+		<param name="coordinateSystem" value="EPSG:31468" />
+		<param name="numberOfThreads" value="2" />
+		<param name="randomSeed" value="4711" />
+	</module>
+
 	<module name="dvrp">
 		<parameterset type="travelTimeMatrix">
 			<param name="cellSize" value="200"/>

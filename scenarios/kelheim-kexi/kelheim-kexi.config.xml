@@ -1,6 +1,12 @@
 <?xml version="1.0" ?>
 <!DOCTYPE config SYSTEM "http://www.matsim.org/files/dtd/config_v2.dtd">
 <config>
+	<module name="global" >
+		<param name="coordinateSystem" value="EPSG:25832" />
+		<param name="numberOfThreads" value="2" />
+		<param name="randomSeed" value="4711" />
+	</module>
+
 	<module name="dvrp">
 		<parameterset type="travelTimeMatrix">
 			<param name="cellSize" value="200"/>
@@ -59,6 +65,7 @@
 
 	<module name="qsim">
 		<param name="simStarttimeInterpretation" value="onlyUseStarttime"/>
+		<param name="simEndtimeInterpretation" value="onlyUseEndtime"/>
 		<param name="endTime" value="30:00:00"/>
 		<param name="flowCapacityFactor" value="100000.0" />
 		<param name="storageCapacityFactor" value="100000.0" />
