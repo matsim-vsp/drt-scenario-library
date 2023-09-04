@@ -1,0 +1,87 @@
+<?xml version="1.0" ?>
+<!DOCTYPE config SYSTEM "http://www.matsim.org/files/dtd/config_v2.dtd">
+<config>
+	<module name="dvrp">
+		<parameterset type="travelTimeMatrix">
+			<param name="cellSize" value="1000"/>
+			<param name="maxNeighborDistance" value="10000"/>
+		</parameterset>
+	</module>
+
+	<module name="global" >
+		<param name="coordinateSystem" value="EPSG:31468" />
+		<param name="randomSeed" value="4711" />
+	</module>
+
+	<module name="multiModeDrt">
+		<parameterset type="drt">
+			<param name="rejectRequestIfMaxWaitOrTravelTimeViolated" value="true"/>
+			<parameterset type="ExtensiveInsertionSearch"/>
+			<param name="stopDuration" value="10"/>
+			<param name="maxWaitTime" value="600"/>
+			<param name="maxTravelTimeAlpha" value="2.0"/>
+			<param name="maxTravelTimeBeta" value="900"/>
+			<param name="vehiclesFile" value="./drt-vehicles/500-8_seater-drt-vehicles.xml"/>
+			<param name="operationalScheme" value="serviceAreaBased" />
+			<param name="drtServiceAreaShapeFile" value="https://svn.vsp.tu-berlin.de/repos/public-svn/matsim/scenarios/countries/de/berlin/berlin-v5.5-10pct/input/berlin-shp/berlin.shp" />
+			<parameterset type="zonalSystem">
+				<param name="zonesGeneration" value="GridFromNetwork"/>
+				<param name="cellSize" value="500"/>
+			</parameterset>
+
+			<parameterset type="rebalancing">
+				<parameterset type="minCostFlowRebalancingStrategy">
+					<param name="targetAlpha" value="0.5"/>
+					<param name="targetBeta" value="0.5"/>
+				</parameterset>
+			</parameterset>
+
+			<parameterset type="drtfare">
+				<param name="basefare" value="1.0"/>
+				<!-- Daily subscription fee (fee = positive value) -->
+				<param name="dailySubscriptionFee" value="0.0"/>
+				<!-- taxi fare per meter (fee = positive value) -->
+				<param name="distanceFare_m" value="0.0002"/>
+				<!-- taxi fare per hour (fee = positive value) -->
+				<param name="timeFare_h" value="3.6"/>
+			</parameterset>
+		</parameterset>
+	</module>
+
+	<module name="network">
+		<param name="inputNetworkFile" value="berlin-drt.network.xml.gz"/>
+	</module>
+
+	<module name="plans">
+		<param name="inputPlansFile" value="berlin-drt.plans.xml.gz"/>
+	</module>
+
+	<module name="qsim">
+		<param name="simStarttimeInterpretation" value="onlyUseStarttime"/>
+		<param name="endTime" value="30:00:00"/>
+		<param name="flowCapacityFactor" value="100000.0" />
+		<param name="storageCapacityFactor" value="100000.0" />
+		<param name="insertingWaitingVehiclesBeforeDrivingVehicles" value="true"/>
+		<param name="snapshotStyle" value="queue"/>
+	</module>
+
+	<module name="controler">
+		<param name="outputDirectory" value="scenarios/output/berlin-drt/latest-run"/>
+		<param name="overwriteFiles" value="deleteDirectoryIfExists"/>
+		<param name="firstIteration" value="0"/>
+		<param name="lastIteration" value="3"/>
+	</module>
+
+	<module name="planCalcScore">
+		<param name="activityType_0" value="dummy"/>
+		<param name="activityTypicalDuration_0" value="24:00:00"/>
+		<param name="traveling_drt" value="-6"/>
+	</module>
+
+	<module name="strategy">
+		<!-- We focus only on DynAgents. "Standard" agents do not change their behaviour -->
+		<param name="maxAgentPlanMemorySize" value="1"/>
+		<param name="ModuleProbability_1" value="1.0"/>
+		<param name="Module_1" value="KeepLastSelected"/>
+	</module>
+</config>

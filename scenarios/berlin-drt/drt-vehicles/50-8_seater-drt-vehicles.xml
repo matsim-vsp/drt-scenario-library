@@ -1,0 +1,54 @@
+<!DOCTYPE vehicles SYSTEM "http://matsim.org/files/dtd/dvrp_vehicles_v1.dtd">
+
+<vehicles>
+	<vehicle id="drt_vehicle_0" start_link="53195" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_1" start_link="117117" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_2" start_link="18032" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_3" start_link="160069" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_4" start_link="44002" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_5" start_link="159316" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_6" start_link="16137" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_7" start_link="25816" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_8" start_link="35542" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_9" start_link="86824" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_10" start_link="58899" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_11" start_link="49188" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_12" start_link="70555" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_13" start_link="122373" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_14" start_link="86181" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_15" start_link="120777" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_16" start_link="26721" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_17" start_link="39214" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_18" start_link="38054" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_19" start_link="28148" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_20" start_link="123990" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_21" start_link="141729" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_22" start_link="118701" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_23" start_link="55122" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_24" start_link="53115" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_25" start_link="55321" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_26" start_link="101941" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_27" start_link="141884" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_28" start_link="10175" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_29" start_link="45889" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_30" start_link="59591" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_31" start_link="104412" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_32" start_link="39193" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_33" start_link="129682" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_34" start_link="44227" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_35" start_link="143540" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_36" start_link="101863" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_37" start_link="114498" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_38" start_link="1356" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_39" start_link="47422" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_40" start_link="55574" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_41" start_link="126218" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_42" start_link="119614" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_43" start_link="5525" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_44" start_link="85249" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_45" start_link="10758" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_46" start_link="2907" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_47" start_link="14734" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_48" start_link="77807" t_0="0.0" t_1="97200.0" capacity="8"/>
+	<vehicle id="drt_vehicle_49" start_link="121905" t_0="0.0" t_1="97200.0" capacity="8"/>
+</vehicles>

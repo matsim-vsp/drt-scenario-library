@@ -1,6 +1,12 @@
 <?xml version="1.0" ?>
 <!DOCTYPE config SYSTEM "http://www.matsim.org/files/dtd/config_v2.dtd">
 <config>
+	<module name="global" >
+		<param name="coordinateSystem" value="EPSG:32118" />
+		<param name="numberOfThreads" value="2" />
+		<param name="randomSeed" value="4711" />
+	</module>
+
 	<module name="dvrp">
 		<parameterset type="travelTimeMatrix">
 			<param name="cellSize" value="200"/>
@@ -14,19 +20,19 @@
 			<param name="stopDuration" value="10"/>
 			<param name="maxWaitTime" value="900"/>
 			<param name="maxTravelTimeAlpha" value="2.0"/>
-			<param name="maxTravelTimeBeta" value="900"/>
-			<param name="vehiclesFile" value="https://svn.vsp.tu-berlin.de/repos/public-svn/matsim/scenarios/countries/world/drt-scenario-library/new-york-manhattan/vehicles/1000-8_seater-drt-vehicles.xml"/>
+			<param name="maxTravelTimeBeta" value="1200"/>
+			<param name="vehiclesFile" value="drt-vehicles/3000-8_seater-drt-vehicles.xml"/>
 			<parameterset type="zonalSystem">
 				<param name="zonesGeneration" value="GridFromNetwork"/>
-				<param name="cellSize" value="500"/>
+				<param name="cellSize" value="250"/>
 			</parameterset>
 
-<!-- 			<parameterset type="rebalancing">
+			<parameterset type="rebalancing">
 				<parameterset type="minCostFlowRebalancingStrategy">
-					<param name="targetAlpha" value="0.0"/>
-					<param name="targetBeta" value="0.0"/>
+					<param name="targetAlpha" value="0.5"/>
+					<param name="targetBeta" value="0.5"/>
 				</parameterset>
-			</parameterset> -->
+			</parameterset>
 
 			<parameterset type="drtfare">
 				<param name="basefare" value="1.0"/>
@@ -41,11 +47,11 @@
 	</module>
 
 	<module name="network">
-		<param name="inputNetworkFile" value="https://svn.vsp.tu-berlin.de/repos/public-svn/matsim/scenarios/countries/world/drt-scenario-library/new-york-manhattan/network.xml.gz"/>
+		<param name="inputNetworkFile" value="nyc-drt.network.xml.gz"/>
 	</module>
 
 	<module name="plans">
-		<param name="inputPlansFile" value="https://svn.vsp.tu-berlin.de/repos/public-svn/matsim/scenarios/countries/world/drt-scenario-library/new-york-manhattan/nyc-100pct.plans.xml.gz"/>
+		<param name="inputPlansFile" value="manhattan-taxi-100pct.plans.xml.gz"/>
 	</module>
 
 	<module name="qsim">
@@ -58,7 +64,7 @@
 	</module>
 
 	<module name="controler">
-		<param name="outputDirectory" value="./output/run-01"/>
+		<param name="outputDirectory" value="scenarios/output/new-york-manhattan/latest-run"/>
 		<param name="overwriteFiles" value="deleteDirectoryIfExists"/>
 		<param name="firstIteration" value="0"/>
 		<param name="lastIteration" value="0"/>
