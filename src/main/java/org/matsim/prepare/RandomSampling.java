@@ -55,7 +55,7 @@ public class RandomSampling implements MATSimAppCommand {
         double baseSample;
         switch (rawScenario) {
             case BERLIN -> {
-                configUrl = svnFolder + "berlin/berlin_drt_config.xml";
+                configUrl = svnFolder + "berlin/berlin-drt-open-scenario.config.xml";
                 plansUrl = svnFolder + "berlin/berlin-10pct-trips.plans.xml.gz";
                 baseSample = 0.1;
             }
