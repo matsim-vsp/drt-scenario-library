@@ -45,8 +45,7 @@ public class ScenariosAnalysis implements MATSimAppCommand {
             throw new RuntimeException("Please define the service area by input the shp");
         }
         serviceArea = shp.getGeometry();
-        //TODO the size of the area is not correct!!!
-        double serviceAreaSize = serviceArea.getArea() / 10e6;
+        double serviceAreaSize = serviceArea.getArea() / 1e6;
 
         String configUrl;
         String plansUrl;
